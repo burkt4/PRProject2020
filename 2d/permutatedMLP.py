@@ -1,3 +1,5 @@
+import imageio
+import glob
 import numpy as np
 from sklearn import svm
 import csv
@@ -8,29 +10,43 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import zero_one_loss
 from sklearn.metrics import accuracy_score
 
-
+training_set = None
+labels_training = None
 # First, we build our training set
-with open('mnist_train.csv', 'r') as f:
-    reader = csv.reader(f)
-    data = list(reader)
-    matrix = np.array(data, dtype=int)
+for i in range(0,10):
+    print("/mnist-permutated-png-format/mnist-permutated-png-format/mnist/train/{}/*.png".format(i))
+    for image_path in glob.glob("mnist-permutated-png-format/mnist-permutated-png-format/mnist/train/{}/*.png".format(i)):
+        im = imageio.imread(image_path)
+        im = im.reshape(-1)
+        if(training_set is None):
+            training_set = im/255.0
+            labels_training =[i]
+        else:
+            training_set = np.vstack ((training_set, im/255.0))
+            labels_training = np.concatenate((labels_training, [i]), axis=None)
 
+validation_set = None
+labels_validation = None
 
-
-# For the model selection part, we will not work on all the data set, this could take too much time.
-training_length = 40200
-training_set = matrix[:training_length, 1:]/255.0
-labels_training = matrix[:training_length, 0]
-validation_length = 19800
-validation_set = matrix[training_length:training_length+validation_length, 1:]/255.0
-labels_validation = matrix[training_length:training_length+validation_length, 0]
+# Then, we build our validation set
+for i in range(0,10):
+    print("/mnist-permutated-png-format/mnist-permutated-png-format/mnist/val/{}/*.png".format(i))
+    for image_path in glob.glob("mnist-permutated-png-format/mnist-permutated-png-format/mnist/val/{}/*.png".format(i)):
+        im = imageio.imread(image_path)
+        im = im.reshape(-1)
+        if(validation_set is None):
+            validation_set = im/255.0
+            labels_validation =[i]
+        else:
+            validation_set = np.vstack ((validation_set, im/255.0))
+            labels_validation = np.concatenate((labels_validation, [i]), axis=None)
 
 
 X,y = training_set, labels_training
 
 # Now, since our data set is ready, we can find the best number of iterations
 
-mlp = MLPClassifier(hidden_layer_sizes=(100),alpha=0.05,max_iter=5,warm_start=True)
+mlp = MLPClassifier(hidden_layer_sizes=(100),alpha=0.05,max_iter=5,random_state=1,warm_start=True)
 
 iterations = list()
 

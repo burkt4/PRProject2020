@@ -20,10 +20,10 @@ with open('mnist_train.csv', 'r') as f:
 
 
 # For the model selection part, we will not work on all the data set, this could take too much time.
-training_length = 20000
+training_length = 40200
 training_set = training_set[:training_length, :]
 labels_training = labels_training[:training_length]
-training_length = 10000
+training_length = 19800
 
 
 # First we normalize our data :
