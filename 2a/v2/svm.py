@@ -79,6 +79,6 @@ def svm(path, nb_samples):
     classify_optimized()
 
 
-svm('../dataset/mnist_test.csv', 1000)
+svm('../../dataset/mnist_train.csv', 60000)
 
 
