@@ -57,6 +57,7 @@ for id,vfeature in valid.items():
         print("An entry from validation set does not have cached distances")
         print("Are you sure they were computed?")
         print("If they were computed with -kw-only flag, then plotting should be ran with it too")
+        break
 
     true_val = []
     scores = []

@@ -50,17 +50,7 @@ if not os.path.exists(utils.valid_dir):
 # this one will always re-write features
 # because unlike word extractions, those can actually change
 
-train_check = []
-valid_check = []
-with open('PatRec17_KWS_Data/task/train.txt', 'r') as f:
-    lines = f.read().splitlines()
-    for line in lines:
-        train_check.append(line)
-
-with open('PatRec17_KWS_Data/task/valid.txt', 'r') as f:
-    lines = f.read().splitlines()
-    for line in lines:
-        valid_check.append(line)
+(train_check, valid_check) = utils.load_train_valid_pages()
 
 train = {}
 valid = {}
