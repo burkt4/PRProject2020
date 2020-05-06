@@ -52,6 +52,7 @@ valid = {}
 for filename in os.listdir("words"):
     if filename.endswith(".png"):
         image = utils.greyMatrix("words/"+str(filename))
+        image = utils.cutoff(image)
         image = utils.resizeArray(image)
         features = utils.featuresExtraction(image)
 
