@@ -4,6 +4,9 @@
 
 The following guide is how to reproduce the result, incl. how to obtain full validation set pictures. Running time was measured on a powerful pc, but inside a VM with linux
 
+#### Step 0 - install the required libraries
+pip install --user -r requirements.txt
+
 #### Step 1 - preprocessing and feature extraction
 
 python3 cache_all.py
