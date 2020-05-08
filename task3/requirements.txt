@@ -1,0 +1,7 @@
+numpy
+Pillow
+bs4
+svg.path
+scikit-image
+opencv-python
+lxml
