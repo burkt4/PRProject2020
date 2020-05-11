@@ -9,4 +9,4 @@
  
  ## Task 03
  
-  - `Task3`/ :Keyword Spotting using Dynamic Time Warping
+  - `task3/` :Keyword Spotting using Dynamic Time Warping
