@@ -5,6 +5,12 @@
 ### Not include dataset  ###
 dataset/
 
+### TASK 3 ###
+task3/words/
+task3/feature_cache/
+task3/plots_keywords/
+
+
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
