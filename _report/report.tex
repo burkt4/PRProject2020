@@ -1,0 +1,57 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[margin=1in,headheight=13.6pt]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Team ADFTZ}
+\lhead{Pattern Recognition}
+\cfoot{\thepage}
+
+\begin{document}
+\title{Final Report}
+\author{David Bücher, Timo Bürk, Félicien Hêche, Aleksandar Lazic, Zakhar Tymchenko }
+\date{24.05.2020}
+\maketitle
+
+
+\section*{General Organization}
+In this team (AFDTZ), we organize our work as follow.
+\newline When we get a new project, we waited a week before to make the first Discord meeting. This time was helpful to really understand what we should do and to have an idea about the implementation. Then, we confront our different point of view until we were agree about the implementation. Finally, we divided the work between the team mates. 
+\newline Then, we worked alone on the assigned part. And to keep in touch during the week we use a whatsapp group. This one was helpful to get a quick answer of the team about some details (what should be the output of a certain function, what do you think about the readme ?,...)
+\newline  To be more precise, we could say that for the task 2a to 2d, a single person was assigned to the task. Indeed, since it was not too much things to do, we thought it could be more complicated if many people work on it. But, the general implementations was discuss on the meeting. And for the task, 3 and 5, we divide the project among us. See the specific part of the report for more details. 
+\section*{Tasks}
+\subsection*{2a SVM}
+In the first task we needed to use a support vector machine (SVM) to solve the MNIST dataset. Since we could the the library we wanted, we use the sklearn library. Note, that we submitted two implementations of this task (version v1 and v2 on github). We had some misunderstood about who should do the task and so, two people made it. But since, it seems to be a good work in both case, we choose to put the two versions on github. Note that with this approach we were able to get an accuracy of 97,24\% on the validation set.
+\subsection*{2b MLP}
+Then, we implemented a Multiple Layer Perceptron (MLP) to solve the MNIST dataset. To build our MLP, we use the class MLPClassifier provided by sklearn, and for the grid search, we use the function GridSearchCV also provided by sklearn. With these different approach, we were able to get an accuracy of about 97.5\% on the validation set.
+\subsection*{2c CNN}
+In the task 2c, we needed to make a Convolutional Neural Network (CNN) to solve the MNIST dataset. To do it, we use the PyTorch library. The model we used was composed of three convolutional layers (always followed by the LeakyReLu activation function). And for the classification head, we use a simple linear layer.
+With this model, we get a 98,5\% accuracy on the validation set.
+\subsection*{2d MLP and CNN on permutated MNIST}
+After that, in the task 2d, we had to train and test our MLP and CNN model on a permutated MNIST dataset. We expected that the MLP will have about the same accuracy that the model train  the real MNIST dataset. And for our CNN, we thought it will have a lower accuracy that on MNIST.
+\newline We observe an accuracy of 94,6\% for the MLP (vs 97,5\% on the normal MNIST) and for the CNN, we get an accuracy of 93\% (vs 98.5\%). So, as expected the MLP is less sensitive than the CNN to the original positions, but there is less differences than we thought. 
+
+\subsection*{3 Keyword Spotting with Dynamic Time Wrapping}
+Since this project was bigger than the previous tasks, we split it in the following part. 
+\begin{enumerate}
+\item[•]Features Extraction Implementation.
+\item[•]Dynamic Time Wrapping Implementation.
+\item[•]Evaluation.
+\end{enumerate}
+Then, each task were done by a different person with a defined deadline, to be sure that we would be able to submit the project in time.
+
+\subsection*{5 Molecules}
+For the last task, since we have already implemented a Dynamic Time Wrapping in the previous task, we choose to work on the Molecules task. We split it in two different task. One person did the parsing and a person implemented the Graph Edit Distance. 
+
+\section*{General Thoughts}
+In general, we think that our team worked quit well. We did not have big issue. Of course, all was not perfect and we could had improve some things. For example, at the beginning, we had some communications problem. It was not clear for all about that he should do. For this reason, we have two versions of the task 2a. But after this small misunderstanding, all worked fine we are quit satisfy about the submitted project.
+
+\end{document}
