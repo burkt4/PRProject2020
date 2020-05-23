@@ -27,7 +27,7 @@ In our team, we organized our work as follows.
 \newline When we got the first instructions for the assignment, we waited a week before to make the first Discord meeting. It was really helpful to really understand what we should do and to start thinking about the implementation. It was also a way to catch up with the theory if something was not clear. Then, we confront our different point of view until we were agree on the implementation. Finally, we tried to divide the work as equal as possible between the different team mates.
 \newline We decided not to use a project management tool to organize our work, but we could have used something like Trello to clearly separate each member's tasks with the current status. Such tools are really useful in big project as they give a better overview of the whole project (tasks to do, tasks done, ...)
 \newline Then, each member worked alone on the assigned part. We also used a WhatsApp group for small communications, to keep in touch during the week. It was helpful to get a quick answer from the team about some details (what should be the output of a certain function, what do you think about the README, ...)
-\newline  To be more precise, we could say that for the task 2a to 2d, a single person was assigned to the task. Indeed, since it was not too much things to do, we thought it could be more complicated if many people worked on it. But, the important points like the architecture or the general implementations were discussed on the Discord meeting. You'll find in the next section the details for each specific task. 
+\newline  To be more precise, we could say that for the task 2a to 2d, a single person was assigned to the task. Indeed, since it was not too much things to do, we thought it could be more complicated if many people worked on it. But, the important points like the architecture or the general implementations were discussed on the Discord meeting. You'll find in the next section the details for each specific task.
 \section*{Tasks}
 \subsection*{2a SVM}
 In the first task we needed to use a support vector machine (SVM) to solve the MNIST dataset. Since we could choose any library we wanted, we uses the sklearn library. Note, that we submitted two implementations of this task (version v1 and v2 on github). We had some misunderstandings about who should do the task and so, two people implemented it. But since, it seems to be a good work in both cases, we decided to put the two versions on github. Note that with this approach we were able to get an accuracy of 97,24\% on the validation set.
@@ -38,10 +38,10 @@ In the task 2c, we needed to make a Convolutional Neural Network (CNN) to solve 
 With this model, we get a 98,5\% accuracy on the validation set.
 \subsection*{2d MLP and CNN on permutated MNIST}
 After that, in the task 2d, we had to train and test our MLP and CNN model on a permutated MNIST dataset. We expected that the MLP will have about the same accuracy that the model train  the real MNIST dataset. And for our CNN, we thought it will have a lower accuracy that on MNIST.
-\newline We observe an accuracy of 94,6\% for the MLP (vs 97,5\% on the normal MNIST) and for the CNN, we get an accuracy of 93\% (vs 98.5\%). So, as expected the MLP is less sensitive than the CNN to the original positions, but there is less differences than we thought. 
+\newline We observe an accuracy of 94,6\% for the MLP (vs 97,5\% on the normal MNIST) and for the CNN, we get an accuracy of 93\% (vs 98.5\%). So, as expected the MLP is less sensitive than the CNN to the original positions, but there is less differences than we thought.
 
 \subsection*{3 Keyword Spotting with Dynamic Time Wrapping}
-Since this project was bigger than the previous tasks, we split it in the following part. 
+Since this project was bigger than the previous tasks, we split it in the following part.
 \begin{enumerate}
 \item[•]Features Extraction Implementation.
 \item[•]Dynamic Time Wrapping Implementation.
@@ -50,7 +50,9 @@ Since this project was bigger than the previous tasks, we split it in the follow
 Then, each task were done by a different person with a defined deadline, to be sure that we would be able to submit the project in time.
 
 \subsection*{5 Molecules}
-For the last task, since we have already implemented a Dynamic Time Wrapping in the previous task, we choose to work on the Molecules task. We split it in two different task. One person did the parsing and a person implemented the Graph Edit Distance. 
+For the last task, since we have already implemented a Dynamic Time Wrapping in the previous task, we choose to work on the Molecules task. We split it in two different task. One person did the parsing and a person implemented the Graph Edit Distance.
+With our solution we get pretty good results despite using only a partial graph edit distance as we do not try to match the edges.
+Indeed we just compute a basic statistic on them (difference in number). 
 
 \section*{General Thoughts}
 In general, we think that our team worked quite well. We did not have any big issue. Of course, all was not perfect and we could had improved some things. For example, at the beginning, we had some communications problem. It was not really clear what each member should do. For this reason, we have two versions of the task 2a. But after this small misunderstanding, all worked fine and we are quite satisfied about the submitted project.
