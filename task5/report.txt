@@ -1,0 +1,22 @@
+Task 5: Molecules
+
+-Since the data set is of reasonable small size, and the data structure relatively complex,
+we use a simple "homemade" KNN implementation.
+
+-Regarding the cost matrix, GED, Cn and Ce:
+Our GED is technicaly not a graph edit distance as we used a short cut for the edge Assignement Cost.
+The intuition is that the structure of molecles is heavly influenced by the nature of the atoms.
+For example: carbon tend to have between 2 and 4 neighbors while hydrogenes only one.
+This means we do kind of a partial editing distances where we assign a cost for changing the nodes symbols,
+and a litle adjustement based on the difference of edges.
+As this is significantly simplier to implement, and produce good results, we consider this approch a success.
+
+-Parameters optimization:
+We splitted the train set in two subset, and tested the accuracy for given parameters (Cn, Ce, K).
+As we observed multiple times an accuracy of 100%, and since this can be a sign of overfitting we decided to select
+our best paramters based on the 2nd best accuracy observed during this phase; which is 0.994.
+This accuracy is obtained by 13 combination of params. So we selected randomly one combination for the test:
+c_n=1, c_e= 1, K= 3
+
+-Results
+This give us the following results on the validation set: 0.992 accuracy
