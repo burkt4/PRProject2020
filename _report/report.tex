@@ -50,9 +50,48 @@ Since this project was bigger than the previous tasks, we split it in the follow
 Then, each task were done by a different person with a defined deadline, to be sure that we would be able to submit the project in time.
 
 \subsection*{5 Molecules}
-For the last task, since we have already implemented a Dynamic Time Wrapping in the previous task, we choose to work on the Molecules task. We split it in two different task. One person did the parsing and a person implemented the Graph Edit Distance.
-With our solution we get pretty good results despite using only a partial graph edit distance as we do not try to match the edges.
-Indeed we just compute a basic statistic on them (difference in number). 
+For the last task, since we have already implemented a Dynamic Time Wrapping in the previous task, we choose to work on the Molecules task. We split it in two different tasks. One person did the parsing and a person implemented the Graph Edit Distance.
+
+\subsubsection*{Implementation}
+
+Since the data set is of reasonable small size, and the data structure relatively complex,
+we use a simple "homemade" KNN implementation.
+
+Our GED is technically not a "full" graph edit distance as we used a shortcut for the Edge Assignment Cost. The intuition is that the structure of molecles is heavly influenced by the nature of the atoms. For example: carbon tends to have between 2 and 4 neighbors while hydrogen only one.
+
+This means we cab do kind of a partial editing distances where we assign a cost for changing the nodes symbols, and a little adjustment based on the difference of edges. For nodes $n_1$ and $n_2$ we compute it as $|deg(n_1) - deg(n_2)|$. As this is significantly more simple to implement, and produces good results, we consider this approach a success.
+
+\subsubsection*{Parameter optimization and evaluation}
+
+To optimize parameters we split the train set in two subsets, and test the accuracy for given combination of parameters (Cn, Ce, K).
+The results can be seen in the table in Figure~\ref{fig:res_table}. We encountered multiple instances of $100\%$ accuracy. Since this can be a sign of overfitting, we decided to select
+our final parameters based on the second best accuracy observed during this phase, which is $99.40\%$. Of the available candidates with this accuracy we selected one at random: $C_n = 1, C_e = 1, K = 3$.
+
+\begin{figure}[ht]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+& K = 1 & K = 3 & K = 5 & K = 7\\
+\hline
+$C_n = 1, C_e = 0$ & $91.02\%$ & $\textbf{100.0\%}$ & $\textbf{100.0\%}$ & $98.20\%$\\
+$C_n = 1, C_e = 1$ & $92.22\%$ & $99.40\%$ & $99.40\%$ & $\textbf{100.0\%}$\\
+$C_n = 1, C_e = 2$ & $88.62\%$ & $98.80\%$ & $99.40\%$ & $\textbf{100.0\%}$\\
+$C_n = 1, C_e = 3$ & $88.62\%$ & $98.80\%$ & $\textbf{100.0\%}$ & $\textbf{100.0\%}$\\
+\hline
+$C_n = 2, C_e = 0$ & $91.02\%$ & $\textbf{100.0\%}$ & $\textbf{100.0\%}$ & $98.20\%$\\
+$C_n = 2, C_e = 1$ & $94.01\%$ & $99.40\%$ & $99.40\%$ & $\textbf{100.0\%}$\\
+$C_n = 2, C_e = 2$ & $92.22\%$ & $99.40\%$ & $99.40\%$ & $\textbf{100.0\%}$\\
+$C_n = 2, C_e = 3$ & $91.01\%$ & $99.40\%$ & $\textbf{100.0\%}$ & $\textbf{100.0\%}$\\
+\hline
+$C_n = 3, C_e = 0$ & $91.02\%$ & $\textbf{100.0\%}$ & $\textbf{100.0\%}$ & $98.20\%$\\
+$C_n = 3, C_e = 1$ & $95.81\%$ & $99.40\%$ & $\textbf{100.0\%}$ & $\textbf{100.0\%}$\\
+$C_n = 3, C_e = 2$ & $94.01\%$ & $99.40\%$ & $99.40\%$ & $\textbf{100.0\%}$\\
+$C_n = 3, C_e = 3$ & $92.22\%$ & $99.40\%$ & $99.40\%$ & $\textbf{100.0\%}$\\
+\end{tabular}\\
+\caption{Parameter tuning table}
+\label{fig:res_table}
+\end{figure}
+
+With our final chosen parameters we got a good result, the accuracy on validation set was $99.20\%$.
 
 \section*{General Thoughts}
 In general, we think that our team worked quite well. We did not have any big issues. Of course, all was not perfect and we could had improved some things. For example, at the beginning, we had some communications problems. It was not really clear what each member should do. For this reason, we have two versions of the task 2b. But after this small misunderstanding, all worked fine and we are quite satisfied about the submitted project.
