@@ -11,7 +11,7 @@
  
   - `task3/` : Keyword Spotting using Dynamic Time Warping
   
-## Task 05
+ ## Task 05
 
- -`task5/` : Molecules with Graph Edit Distance
+  - `task5/` : Molecules with Graph Edit Distance
 
